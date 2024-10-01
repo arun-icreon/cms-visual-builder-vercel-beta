@@ -185,6 +185,17 @@ export const OfficeLocationDataFragmentDoc = /*#__PURE__*/ gql`
   email: OfficeEmail
 }
     `;
+export const TitleDescriptionWithImageDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment TitleDescriptionWithImageData on TitleDescriptionWithImage {
+  Title: Title
+  Description: Description {
+    json
+  }
+  Image: Image {
+    ...ReferenceData
+  }
+}
+    `;
 export const ButtonBlockDataFragmentDoc = /*#__PURE__*/ gql`
     fragment ButtonBlockData on ButtonBlock {
   text
@@ -233,6 +244,7 @@ export const BlockDataFragmentDoc = /*#__PURE__*/ gql`
   ...IContentData
   ...CardBlockData
   ...OfficeLocationData
+  ...TitleDescriptionWithImageData
   ...ButtonBlockData
   ...MegaMenuGroupBlockData
   ...NavigationMenuBlockData
@@ -316,6 +328,7 @@ ${CardBlockDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
 ${OfficeLocationDataFragmentDoc}
+${TitleDescriptionWithImageDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${NavigationMenuBlockDataFragmentDoc}
@@ -367,6 +380,7 @@ ${BlockDataFragmentDoc}
 ${CardBlockDataFragmentDoc}
 ${ButtonBlockPropertyDataFragmentDoc}
 ${OfficeLocationDataFragmentDoc}
+${TitleDescriptionWithImageDataFragmentDoc}
 ${ButtonBlockDataFragmentDoc}
 ${MegaMenuGroupBlockDataFragmentDoc}
 ${NavigationMenuBlockDataFragmentDoc}

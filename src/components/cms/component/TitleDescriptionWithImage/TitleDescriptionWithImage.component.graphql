@@ -1,0 +1,9 @@
+fragment TitleDescriptionWithImageData on TitleDescriptionWithImage {
+  Title: Title
+  Description: Description {
+    json
+  }
+  Image: Image {
+    ...ReferenceData
+  }
+}
