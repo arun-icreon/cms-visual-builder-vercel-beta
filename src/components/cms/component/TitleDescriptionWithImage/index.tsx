@@ -6,10 +6,14 @@ import {
   TitleDescriptionWithImageDataFragmentDoc,
   type TitleDescriptionWithImageDataFragment,
 } from "@/gql/graphql";
+import AnimatedImage from "../CardBlock/motion";
 
 export const TitleDescriptionWithImage: CmsComponent<
   TitleDescriptionWithImageDataFragment
-> = ({ data: { Title = "", Description = { json: null } }, inEditMode }) => {
+> = ({
+  data: { Title = "", Image, Description = { json: null } },
+  inEditMode,
+}) => {
   return (
     <section className="hero">
       <div className="hero-content">
@@ -24,6 +28,20 @@ export const TitleDescriptionWithImage: CmsComponent<
             cmsFieldName="Description"
             text={Description?.json}
           />
+        )}
+
+        {(Image || inEditMode) && (
+          <AnimatedImage imageLayout="after">
+            <CmsEditable
+              as={Image}
+              cmsFieldName="Image"
+              className="rounded-[40px] w-full"
+              src={Image}
+              alt={""}
+              width={660}
+              height={440}
+            />
+          </AnimatedImage>
         )}
       </div>
     </section>
