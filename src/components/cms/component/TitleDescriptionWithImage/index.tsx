@@ -1,4 +1,7 @@
+/* eslint-disable react/jsx-no-undef */
 import { CmsComponent } from "@remkoj/optimizely-cms-react";
+import { RichText } from "@remkoj/optimizely-cms-react/components";
+import { CmsEditable } from "@remkoj/optimizely-cms-react/rsc";
 import {
   TitleDescriptionWithImageDataFragmentDoc,
   type TitleDescriptionWithImageDataFragment,
@@ -6,20 +9,21 @@ import {
 
 export const TitleDescriptionWithImage: CmsComponent<
   TitleDescriptionWithImageDataFragment
-> = ({ data }) => {
+> = ({ data: { Title = "", Description = { json: null } }, inEditMode }) => {
   return (
     <section className="hero">
       <div className="hero-content">
-        {data.Title && (
-          <>
-            <h1 className="hero-title">{data.Title}</h1>
-          </>
+        {(Title || inEditMode) && (
+          <CmsEditable as="h2" cmsFieldName="Title">
+            {Title}
+          </CmsEditable>
         )}
-
-        {data.Description?.json && (
-          <>
-            <p className="hero-description">{data.Description?.json}</p>
-          </>
+        {(Description || inEditMode) && (
+          <CmsEditable
+            as={RichText}
+            cmsFieldName="Description"
+            text={Description?.json}
+          />
         )}
       </div>
     </section>
