@@ -6,7 +6,7 @@ import {
   TitleDescriptionWithImageDataFragmentDoc,
   type TitleDescriptionWithImageDataFragment,
 } from "@/gql/graphql";
-import AnimatedImage from "../CardBlock/motion";
+import CmsImage from "@/components/shared/cms_image";
 
 export const TitleDescriptionWithImage: CmsComponent<
   TitleDescriptionWithImageDataFragment
@@ -31,17 +31,13 @@ export const TitleDescriptionWithImage: CmsComponent<
         )}
 
         {(Image || inEditMode) && (
-          <AnimatedImage imageLayout="after">
-            <CmsEditable
-              as={Image}
-              cmsFieldName="Image"
-              className="rounded-[40px] w-full"
-              src={Image}
-              alt={""}
-              width={660}
-              height={440}
-            />
-          </AnimatedImage>
+          <CmsImage
+            src={Image}
+            alt="Hero image"
+            className="object-cover not-prose"
+            height="500"
+            width="500"
+          />
         )}
       </div>
     </section>
