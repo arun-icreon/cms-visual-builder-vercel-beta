@@ -1,0 +1,12 @@
+fragment TitleDescriptionWithImageElementData on TitleDescriptionWithImageElement {
+  Title
+  Content {
+    json
+  }
+  Thumbnail {
+    ...ReferenceData
+  }
+  Link: Link {
+    ...LinkData
+  }
+}

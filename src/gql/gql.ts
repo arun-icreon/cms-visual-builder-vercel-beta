@@ -41,6 +41,7 @@ const documents = {
     "fragment ArticlePageData on ArticlePage {\n  metadata: _metadata {\n    published\n  }\n  articleHeroImage {\n    ...ReferenceData\n  }\n  articleAuthors\n  articleTitle\n  articleBody {\n    json\n  }\n}": types.ArticlePageDataFragmentDoc,
     "fragment ButtonBlockData on ButtonBlock {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}": types.ButtonBlockDataFragmentDoc,
     "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}": types.ButtonBlockPropertyDataFragmentDoc,
+    "fragment TitleDescriptionWithImageElementData on TitleDescriptionWithImageElement {\n  Title\n  Content {\n    json\n  }\n  Thumbnail {\n    ...ReferenceData\n  }\n  Link: Link {\n    ...LinkData\n  }\n}": types.TitleDescriptionWithImageElementDataFragmentDoc,
     "fragment CTAElementData on CTAElement {\n  text: Text\n  link: Link {\n    ...LinkData\n  }\n}": types.CTAElementDataFragmentDoc,
     "fragment HeadingElementData on HeadingElement {\n  headingText\n}": types.HeadingElementDataFragmentDoc,
     "fragment ImageElementData on ImageElement {\n  altText\n  imageLink {\n    ...ReferenceData\n  }\n}": types.ImageElementDataFragmentDoc,
@@ -179,6 +180,10 @@ export function gql(source: "fragment ButtonBlockData on ButtonBlock {\n  text\n
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}"): (typeof documents)["fragment ButtonBlockPropertyData on ButtonBlockProperty {\n  text\n  link {\n    ...LinkData\n  }\n  className\n  buttonType\n  variant\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment TitleDescriptionWithImageElementData on TitleDescriptionWithImageElement {\n  Title\n  Content {\n    json\n  }\n  Thumbnail {\n    ...ReferenceData\n  }\n  Link: Link {\n    ...LinkData\n  }\n}"): (typeof documents)["fragment TitleDescriptionWithImageElementData on TitleDescriptionWithImageElement {\n  Title\n  Content {\n    json\n  }\n  Thumbnail {\n    ...ReferenceData\n  }\n  Link: Link {\n    ...LinkData\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

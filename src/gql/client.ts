@@ -284,6 +284,20 @@ export const PageDataFragmentDoc = /*#__PURE__*/ gql`
   ...ArticlePageData
 }
     `;
+export const TitleDescriptionWithImageElementDataFragmentDoc = /*#__PURE__*/ gql`
+    fragment TitleDescriptionWithImageElementData on TitleDescriptionWithImageElement {
+  Title
+  Content {
+    json
+  }
+  Thumbnail {
+    ...ReferenceData
+  }
+  Link: Link {
+    ...LinkData
+  }
+}
+    `;
 export const MenuContentFragmentDoc = /*#__PURE__*/ gql`
     fragment MenuContent on NavigationMenuBlockProperty {
   heading: MenuNavigationHeading
